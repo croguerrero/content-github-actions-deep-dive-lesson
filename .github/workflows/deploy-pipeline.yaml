@@ -48,6 +48,11 @@ jobs:
   publish:
    runs-on: ubuntu-latest
    steps:
+     - name: Download artifact
+       uses: actions/download-artifact@v2
+       with:
+        name: zipped-bundle
+        
      - name: Create release
        id: create_release
        uses: actions/create-release@v1
@@ -59,10 +64,7 @@ jobs:
          body: New release for ${{ github.sha }}. Release notes can be found in the docs.
          draft: false
          prerelease: false
-     - name: Download artifact
-       uses: actions/download-artifact@v2
-       with:
-        name: zipped-bundle
+    
      - name: Upload release asset
        uses: actions/upload-release-asset@v1
        env:
