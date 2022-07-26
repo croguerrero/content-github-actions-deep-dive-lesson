@@ -44,15 +44,16 @@ jobs:
         with:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
-          
+      - name: Download artifact
+        uses: actions/download-artifact@v2
+        with:
+         name: zipped-bundle
+         
+           
   publish:
    runs-on: ubuntu-latest
    steps:
-     - name: Download artifact
-       uses: actions/download-artifact@v2
-       with:
-        name: zipped-bundle
-        path: ${{ github.sha }}.zip
+     
         
      - name: Create release
        id: create_release
