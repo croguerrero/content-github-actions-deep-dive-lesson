@@ -31,9 +31,9 @@ jobs:
           name: zipped-bundle
           path: ${{ github.sha }}.zip
       - name: Download artifact
-        uses: actions/download-artifac@v2
+        uses: actions/download-artifact@v2
         with:
-          name: zipped-donlowad 
+          name: zipped-donlwoad 
       - name: COnfigure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
