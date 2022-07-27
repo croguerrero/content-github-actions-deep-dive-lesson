@@ -1,4 +1,3 @@
-from tkinter import EventType
 from github import Github
 
 def lambda_handler(event, context):
@@ -11,8 +10,8 @@ def lambda_handler(event, context):
     """
     print('Starting functions\n------------------------------------------------------')
     
-    if event["imput"] == "hello":
+    if event ["imput"] == "hello":
         return "World!"
     else: 
-        raise Exception("Invalid input")
-        
+        raise 
+
