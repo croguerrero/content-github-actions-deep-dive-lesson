@@ -77,7 +77,7 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_USER_ID }}
           aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws-region: us-east-1
+          aws-region: us-east-2
       - name: Create test function
         run: |
             aws lambda create-function --function-name test-function \
