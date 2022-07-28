@@ -12,6 +12,8 @@ def lambda_handler(event, context):
     
     if event ["imput"] == "hello":
         return "World!"
+    elif event ["imput"] == "hi":
+        return "I'm doind well!"
     else: 
         raise 
 
