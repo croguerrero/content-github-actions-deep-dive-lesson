@@ -73,7 +73,7 @@ jobs:
     needs: upload
     strategy:
       matrix:
-        imput: ["hello", "hi"]
+        input: ["hello", "hi"]
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -90,8 +90,8 @@ jobs:
 
       - name: Invoke test function 
         run: |
-            aws lambda invoke --function-name test-function-${{ matrix.imput }} \
-              --payload $(echo "{\"imput\": \"${{ matrix.imput }}\"}" | base64) \
+            aws lambda invoke --function-name test-function-${{ matrix.input }} \
+              --payload $(echo "{\"input\": \"${{ matrix.input }}\"}" | base64) \
               --output json out 
             if grep -q "Error" out; then
               exit1
@@ -101,7 +101,7 @@ jobs:
       - name: Destroy test function
         if: ${{ always() }}
         run: |
-            aws lambda delete-function --function-name test-function
+            aws lambda delete-function --function-name test-function-${{ matrix.input }}
    
   deploy:
     runs-on: ubuntu-latest

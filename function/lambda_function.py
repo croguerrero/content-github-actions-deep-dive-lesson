@@ -10,9 +10,9 @@ def lambda_handler(event, context):
     """
     print('Starting functions\n------------------------------------------------------')
     
-    if event ["imput"] == "hello":
+    if event ["input"] == "hello":
         return "World!"
-    if event ["imput"] == "hi":
+    if event ["input"] == "hi":
         return "I'm doind well!"
     else: 
         raise 
