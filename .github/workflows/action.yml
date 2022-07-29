@@ -83,7 +83,7 @@ jobs:
           aws-region: us-east-2
       - name: Create test function
         run: |
-            aws lambda create-function --function-name test-function \
+            aws lambda create-function --function-name test-function-${{ matrix.input }} \
               --code S3Bucket=croguerrero-bucket,S3Key=${{ github.sha }}.zip \
               --handler lambda_function.lambda_handler --runtime python3.9 \
               --role arn:aws:iam::200281971408:role/lambda-rol
